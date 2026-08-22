@@ -193,8 +193,10 @@
   .social a:hover{background:var(--gold);color:#23022e}
 
   @media(max-width:900px){
-    .navlinks{display:none}
     .menu-btn{display:block}
+    .navlinks{display:none;position:absolute;top:72px;left:0;right:0;flex-direction:column;align-items:stretch;gap:0;background:var(--sand);padding:8px 24px 16px;border-bottom:1px solid var(--line);box-shadow:var(--shadow)}
+    .navlinks.open{display:flex}
+    .navlinks a{padding:13px 2px;border-bottom:1px solid var(--line);font-size:1rem}
     .booking{grid-template-columns:1fr 1fr;margin-top:-30px}
     .about,.spaces{grid-template-columns:1fr}
     .disc-grid,.stay-grid{grid-template-columns:1fr}
@@ -274,7 +276,7 @@
 <section id="about">
   <div class="wrap about">
     <div class="imgcol">
-      <img class="fill" src="IMG_0285.jpeg" alt="Villa24 interior" onerror="this.remove()">
+      <img class="fill" src="IMG_0301.jpeg" alt="Villa24 interior" onerror="this.remove()">
       <div class="badge"><b data-i18n="about_badge_b">Rruga “7 Nëntori”</b><small data-i18n="about_badge_s">Central Vlora · quiet area</small></div>
     </div>
     <div>
@@ -380,10 +382,10 @@
     </div>
 
     <div class="galgroup">
-      <div class="galhead"><h3 data-i18n="ga5">Common areas &amp; views</h3><span data-i18n="ga5s">Coffee corner · flowered balcony</span></div>
+      <div class="galhead"><h3 data-i18n="ga5">Common areas &amp; coffee corner</h3><span data-i18n="ga5s">Free Lavazza Espresso for our guests</span></div>
       <div class="galrow">
-        <figure><img src="IMG_0617.jpeg" alt="Villa24 — coffee corner" onerror="this.parentElement.remove()"></figure>
-        <figure><img src="IMG_5662.jpeg" alt="Villa24 — flowered balcony" onerror="this.parentElement.remove()"></figure>
+        <figure><img src="IMG_0633.jpeg" alt="Villa24 — Lavazza coffee corner" onerror="this.parentElement.remove()"></figure>
+        <figure><img src="IMG_5677.jpeg" alt="Villa24 — shared corridor" onerror="this.parentElement.remove()"></figure>
       </div>
     </div>
   </div>
@@ -665,6 +667,14 @@ document.addEventListener('keydown',e=>{
   else if(e.key==='ArrowLeft')lbStep(-1);
 });
 lbInit();
+
+// --- Mobile menu ---
+const menuBtn=document.querySelector('.menu-btn');
+const navLinks=document.querySelector('.navlinks');
+if(menuBtn&&navLinks){
+  menuBtn.addEventListener('click',()=>navLinks.classList.toggle('open'));
+  navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navLinks.classList.remove('open')));
+}
 </script>
 
 <script>
@@ -705,7 +715,7 @@ const I18N = {
     ga2:"Triple Room", ga2s:"Triple room · private bath",
     ga3:"Large Double Room", ga3s:"Double bed · extra space",
     ga4:"Comfort Room · mini balcony", ga4s:"Double bed · mini balcony · private bath",
-    ga5:"Common areas & views", ga5s:"Coffee corner · flowered balcony",
+    ga5:"Common areas & coffee corner", ga5s:"Free Lavazza Espresso for our guests",
     rooms_eyebrow:"Our Rooms", rooms_title:"Rooms at Villa24", rooms_sub:"Every room comes with a kitchenette, balcony, city view, free Wi-Fi, air-conditioning and a private bathroom.",
     rt1_h:"Superior Double or Twin — City View", rt1_occ:"2 guests · double or twin beds",
     rt2_h:"Triple Room", rt2_occ:"3 guests · triple room",
@@ -780,7 +790,7 @@ const I18N = {
     ga2:"Dhomë Tripla", ga2s:"Dhomë tripla · banjo private",
     ga3:"Dhomë Dyshe e Madhe", ga3s:"Krevat dopio · hapësirë shtesë",
     ga4:"Dhomë Comfort · ballkon i vogël", ga4s:"Krevat dopio · ballkon i vogël · banjo private",
-    ga5:"Hapësira të përbashkëta & pamje", ga5s:"Kënd kafeje · ballkon me lule",
+    ga5:"Hapësira të përbashkëta & kënd kafeje", ga5s:"Lavazza Espresso falas për miqtë tanë",
     rooms_eyebrow:"Dhomat Tona", rooms_title:"Dhomat në Villa24", rooms_sub:"Çdo dhomë vjen me një kënd gatimi, ballkon, pamje nga qyteti, Wi-Fi falas, kondicioner dhe banjo private.",
     rt1_h:"Dhomë Superiore Dyshe ose Twin — Pamje Qyteti", rt1_occ:"2 mysafirë · krevat dopio ose dy krevate",
     rt2_h:"Dhomë Tripla", rt2_occ:"3 mysafirë · dhomë tripla",
