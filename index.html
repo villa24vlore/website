@@ -304,6 +304,7 @@
   footer a:hover{color:var(--gold)}
   .foot-logo{font-family:Georgia,serif;font-size:1.4rem;color:#fff;margin-bottom:12px}
   .foot-logo span{color:var(--gold)}
+  .foot-bottom .legal a{display:inline;padding:0;text-decoration:underline;text-underline-offset:3px}
   .foot-bottom{border-top:1px solid rgba(255,255,255,.12);padding-top:22px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.82rem}
   .social{display:flex;gap:12px;margin-top:16px}
   .social a{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.1);display:grid;place-items:center;font-size:1rem}
@@ -747,7 +748,7 @@
     </div>
     <div class="foot-bottom">
       <span data-i18n="foot_rights">© 2026 Villa24 Vlorë</span>
-      <span data-i18n="foot_legal">Privacy · Cookies · Terms</span>
+      <span class="legal"><a href="legal.html#privacy" data-i18n="foot_privacy">Privacy</a> · <a href="legal.html#cookies" data-i18n="foot_cookies">Cookies</a> · <a href="legal.html#terms" data-i18n="foot_terms">Terms</a></span>
     </div>
   </div>
 </footer>
@@ -869,7 +870,8 @@ const I18N = {
     foot_about:"An elegant aparthotel in the heart of Vlora — private rooms, comfort and warm hospitality near the historic centre.",
     foot_explore:"Explore", foot_info:"Information", foot_contact:"Contact",
     foot_checkin:"Check-in 14:30 · Check-out 10:00", foot_getting:"Getting around", foot_offers:"Long-stay offers",
-    foot_rights:"© 2026 Villa24 Vlorë", foot_legal:"Privacy · Cookies · Terms"
+    foot_rights:"© 2026 Villa24 Vlorë",
+    foot_privacy:"Privacy", foot_cookies:"Cookies", foot_terms:"Terms"
   },
   sq: {
     nav_about:"Rreth Villa24", nav_discover:"Zbulo Vlorën", nav_stay:"Qëndrimi Juaj", nav_prices:"Dhomat & Çmimet", nav_contact:"Kontakt", nav_book:"Rezervo",
@@ -944,7 +946,8 @@ const I18N = {
     foot_about:"Një aparthotel elegant në zemër të Vlorës — dhoma private, komoditet dhe mikpritje pranë qendrës historike.",
     foot_explore:"Eksploro", foot_info:"Informacion", foot_contact:"Kontakt",
     foot_checkin:"Hyrja 14:30 · Dalja 10:00", foot_getting:"Si të lëvizni", foot_offers:"Oferta afatgjata",
-    foot_rights:"© 2026 Villa24 Vlorë", foot_legal:"Privatësi · Cookies · Kushtet"
+    foot_rights:"© 2026 Villa24 Vlorë",
+    foot_privacy:"Privatësi", foot_cookies:"Cookies", foot_terms:"Kushtet"
   }
 };
 

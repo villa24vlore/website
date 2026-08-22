@@ -40,6 +40,10 @@ All four rooms have a private bathroom, kitchenette, air conditioning and free W
 - [Booking.com listing](https://www.booking.com/hotel/al/villa24-vlore.it.html)
 - [Instagram @villa24vlore](https://www.instagram.com/villa24vlore/)
 
+## Legal
+
+- [Privacy, Cookies & Terms](https://infovillaadelefdp.github.io/Villa24Vlore/legal.html) (EN/SQ): the site sets no cookies and uses no analytics or tracking; personal data reaches the owners only if a visitor chooses to send an email or WhatsApp message. Rates shown are indicative — a booking exists only once the owners confirm it in writing.
+
 ## Optional
 
 - [Sitemap](https://infovillaadelefdp.github.io/Villa24Vlore/sitemap.xml)
