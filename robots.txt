@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://infovillaadelefdp.github.io/Villa24Vlore/sitemap.xml
