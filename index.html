@@ -958,5 +958,127 @@ function setLang(lang){
 }
 setLang('en');
 </script>
+
+<!-- WebMCP — expose the page's own capabilities to an in-browser AI agent.
+     navigator.modelContext is an experimental API; this block is a no-op where it is absent. -->
+<script>
+(function(){
+  const mc = navigator.modelContext;
+  if(!mc) return;
+
+  const SITE='https://infovillaadelefdp.github.io/Villa24Vlore/';
+  const WA='https://wa.me/355692049179';
+  const MAIL='villa24vlore@gmail.com';
+  const SECTIONS=['about','spaces','gallery','prices','discover','stay','contact','book'];
+
+  const out=o=>({content:[{type:'text',text:typeof o==='string'?o:JSON.stringify(o,null,2)}]});
+  const clean=el=>el?el.textContent.replace(/\s+/g,' ').trim():'';
+  const pick=sel=>clean(document.querySelector(sel));
+
+  // Read back from the DOM so the tools can never drift from what the page shows.
+  const rooms=()=>[...document.querySelectorAll('.rcard')].map(c=>({
+    name:clean(c.querySelector('h3')),
+    occupancy:clean(c.querySelector('.occ')),
+    features:[...c.querySelectorAll('.tags span')].map(clean)
+  }));
+  const rates=()=>({
+    currency:'EUR', per:'night', indicative:true,
+    months:[...document.querySelectorAll('.pcard')].map(p=>({
+      month:clean(p.querySelector('.mon')),
+      from:Number((clean(p.querySelector('.amt')).match(/\d+/)||[])[0])||null
+    })),
+    basis:pick('[data-i18n="price_sub"]'),
+    rooms_note:pick('.price-note .rooms-info'),
+    long_stay:pick('.longstay p')
+  });
+  const INFO={
+    name:'Villa24 Vlorë', type:'Aparthotel · 4 private rooms',
+    address:'Rr. 7 Nëntori, Vlorë 9401, Albania',
+    geo:{lat:40.47158043908442,lon:19.486676571164686},
+    email:MAIL, phone:'+355 69 204 9179', whatsapp:WA,
+    checkin:'14:30', checkout:'10:00', petsAllowed:false,
+    languages:['en','sq'], website:SITE,
+    booking:'https://www.booking.com/hotel/al/villa24-vlore.it.html',
+    instagram:'https://www.instagram.com/villa24vlore/'
+  };
+
+  const tools=[{
+    name:'villa24_get_property_info',
+    description:'Address, contact details, check-in/check-out times and profile links for Villa24 Vlorë.',
+    inputSchema:{type:'object',properties:{},additionalProperties:false},
+    async execute(){ return out(INFO); }
+  },{
+    name:'villa24_list_rooms',
+    description:'The four rooms as published on the page, with occupancy and features, in the language currently displayed.',
+    inputSchema:{type:'object',properties:{},additionalProperties:false},
+    async execute(){ return out(rooms()); }
+  },{
+    name:'villa24_get_rates',
+    description:'Summer nightly rates by month as published on the page, what the price covers, and the long-stay note. Indicative starting prices — not a live quote and not an availability check.',
+    inputSchema:{type:'object',properties:{},additionalProperties:false},
+    async execute(){ return out(rates()); }
+  },{
+    name:'villa24_set_language',
+    description:'Switch the page between English and Albanian.',
+    inputSchema:{type:'object',properties:{lang:{type:'string',enum:['en','sq'],description:'en = English, sq = Albanian'}},required:['lang'],additionalProperties:false},
+    async execute({lang}){ setLang(lang); return out('Page language set to '+lang+'.'); }
+  },{
+    name:'villa24_show_section',
+    description:'Scroll the page to one of its sections so the visitor can see it.',
+    inputSchema:{type:'object',properties:{section:{type:'string',enum:SECTIONS}},required:['section'],additionalProperties:false},
+    async execute({section}){
+      const el=document.getElementById(section);
+      if(!el) return out('No section named "'+section+'".');
+      el.scrollIntoView({behavior:'smooth',block:'start'});
+      return out('Scrolled to "'+section+'".');
+    }
+  },{
+    name:'villa24_prepare_booking_request',
+    description:'Fill the on-page booking bar with the requested dates, party and room type, then return a ready-to-send enquiry (message text, WhatsApp link, mailto link). Sends nothing and reserves nothing: the visitor still has to send it and the owner confirms availability.',
+    inputSchema:{type:'object',properties:{
+      checkin:{type:'string',description:'Arrival date, YYYY-MM-DD'},
+      checkout:{type:'string',description:'Departure date, YYYY-MM-DD'},
+      guests:{type:'string',description:'Party, e.g. "2 adults + 1 child"'},
+      room:{type:'string',description:'Preferred room type, e.g. "Triple + sofa bed"'},
+      notes:{type:'string',description:'Anything else to pass on to the owner'}
+    },required:['checkin','checkout'],additionalProperties:false},
+    async execute(a){
+      const iso=/^\d{4}-\d{2}-\d{2}$/;
+      if(!iso.test(a.checkin)||!iso.test(a.checkout)) return out('Dates must be in YYYY-MM-DD format.');
+      if(a.checkout<=a.checkin) return out('Check-out must be after check-in.');
+      const nights=Math.round((Date.parse(a.checkout)-Date.parse(a.checkin))/864e5);
+      const date=(id,v)=>{const el=document.getElementById(id); if(el) el.value=v;};
+      // The selects have a fixed option list — only move them on a real match.
+      const choose=(id,v)=>{
+        if(!v) return null;
+        const el=document.getElementById(id); if(!el) return null;
+        const o=[...el.options].find(o=>o.textContent.toLowerCase().includes(v.toLowerCase()));
+        if(o){ el.value=o.value||o.textContent; el.selectedIndex=o.index; return o.textContent.trim(); }
+        return null;
+      };
+      date('checkin',a.checkin); date('checkout',a.checkout);
+      const g=choose('guests',a.guests), r=choose('room',a.room);
+      const msg=['Booking request — Villa24 Vlorë',
+        'Check-in: '+a.checkin, 'Check-out: '+a.checkout, 'Nights: '+nights,
+        a.guests?'Guests: '+(g||a.guests):null, a.room?'Room: '+(r||a.room):null,
+        a.notes?'Notes: '+a.notes:null].filter(Boolean).join('\n');
+      document.getElementById('book').scrollIntoView({behavior:'smooth',block:'center'});
+      return out({
+        status:'draft prepared — nothing sent, nothing reserved',
+        nights, booking_bar_updated:true,
+        guests_matched:g, room_matched:r,
+        message:msg,
+        whatsapp:WA+'?text='+encodeURIComponent(msg),
+        mailto:'mailto:'+MAIL+'?subject='+encodeURIComponent('Booking request — Villa24 Vlorë')+'&body='+encodeURIComponent(msg)
+      });
+    }
+  }];
+
+  try{
+    if(typeof mc.provideContext==='function') mc.provideContext({tools});
+    else if(typeof mc.registerTool==='function') tools.forEach(t=>mc.registerTool(t));
+  }catch(e){ /* agent surface unavailable — the page works exactly as before */ }
+})();
+</script>
 </body>
 </html>

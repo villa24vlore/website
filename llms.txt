@@ -43,4 +43,5 @@ All four rooms have a private bathroom, kitchenette, air conditioning and free W
 ## Optional
 
 - [Sitemap](https://infovillaadelefdp.github.io/Villa24Vlore/sitemap.xml)
+- WebMCP: the page registers browser-side agent tools on `navigator.modelContext` (property info, room list, rates, language switch, section navigation, and a booking-enquiry draft that is never sent automatically). Experimental API — absent in browsers that do not implement it.
 - [Structured data](https://infovillaadelefdp.github.io/Villa24Vlore/): a schema.org LodgingBusiness JSON-LD block is embedded in the page head with the same address, rooms, amenities and rates.
