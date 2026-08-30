@@ -12,40 +12,40 @@ Villa24 is a single-property, independently run aparthotel — not a chain or a 
 
 ## Rooms
 
-- [Superior Double or Twin — City View](https://infovillaadelefdp.github.io/Villa24Vlore/#prices): 2 guests, double or twin beds, kitchenette, balcony, city view.
-- [Triple Room](https://infovillaadelefdp.github.io/Villa24Vlore/#prices): 3 guests, private bathroom, kitchenette. €5 more per night in season.
-- [Large Double Room](https://infovillaadelefdp.github.io/Villa24Vlore/#prices): 2 guests, roughly 40 m², double bed, private bathroom.
-- [Comfort Room with mini balcony](https://infovillaadelefdp.github.io/Villa24Vlore/#prices): 2 guests, double bed, mini balcony, private bathroom.
+- [Superior Double or Twin — City View](https://villa24vlore.com/#prices): 2 guests, double or twin beds, kitchenette, balcony, city view.
+- [Triple Room](https://villa24vlore.com/#prices): 3 guests, private bathroom, kitchenette. €5 more per night in season.
+- [Large Double Room](https://villa24vlore.com/#prices): 2 guests, roughly 40 m², double bed, private bathroom.
+- [Comfort Room with mini balcony](https://villa24vlore.com/#prices): 2 guests, double bed, mini balcony, private bathroom.
 
 All four rooms have a private bathroom, kitchenette, air conditioning and free Wi-Fi. Three are double rooms with a sofa bed; one is a triple room with a sofa bed on request.
 
 ## Rates
 
-- [Summer 2026 rates](https://infovillaadelefdp.github.io/Villa24Vlore/#prices): from €40/night in June, €45 in July, €55 in August, €45 in September. Prices are per night for 2 adults + 1 child; for 2 children, ask.
+- [Summer 2026 rates](https://villa24vlore.com/#prices): from €40/night in June, €45 in July, €55 in August, €45 in September. Prices are per night for 2 adults + 1 child; for 2 children, ask.
 - Weekly and monthly long-stay rates are available on request.
 
 ## The property
 
-- [About Villa24](https://infovillaadelefdp.github.io/Villa24Vlore/#about): the house, its location on Rruga "7 Nëntori" and the quiet central neighbourhood around it.
-- [Photo gallery](https://infovillaadelefdp.github.io/Villa24Vlore/#gallery): the four rooms, the shared corridor and the Lavazza coffee corner.
-- [Stay your way](https://infovillaadelefdp.github.io/Villa24Vlore/#stay): daily, weekly and monthly stays.
+- [About Villa24](https://villa24vlore.com/#about): the house, its location on Rruga "7 Nëntori" and the quiet central neighbourhood around it.
+- [Photo gallery](https://villa24vlore.com/#gallery): the four rooms, the shared corridor and the Lavazza coffee corner.
+- [Stay your way](https://villa24vlore.com/#stay): daily, weekly and monthly stays.
 
 ## Vlorë
 
-- [Discover Vlora](https://infovillaadelefdp.github.io/Villa24Vlore/#discover): Flag Square and the Independence Monument, the Muradie Mosque, the Old Town, the National Museum of Independence, Kanina Castle and Kuzum Baba — all reachable from the property.
+- [Discover Vlora](https://villa24vlore.com/#discover): Flag Square and the Independence Monument, the Muradie Mosque, the Old Town, the National Museum of Independence, Kanina Castle and Kuzum Baba — all reachable from the property.
 
 ## Booking and contact
 
-- [Contact and direct booking](https://infovillaadelefdp.github.io/Villa24Vlore/#contact): email villa24vlore@gmail.com or call +355 69 204 9179 for the best available rate.
+- [Contact and direct booking](https://villa24vlore.com/#contact): email villa24vlore@gmail.com or call +355 69 204 9179 for the best available rate.
 - [Booking.com listing](https://www.booking.com/hotel/al/villa24-vlore.it.html)
 - [Instagram @villa24vlore](https://www.instagram.com/villa24vlore/)
 
 ## Legal
 
-- [Privacy, Cookies & Terms](https://infovillaadelefdp.github.io/Villa24Vlore/legal.html) (EN/SQ): the site sets no cookies and uses no analytics or tracking; personal data reaches the owners only if a visitor chooses to send an email or WhatsApp message. Rates shown are indicative — a booking exists only once the owners confirm it in writing.
+- [Privacy, Cookies & Terms](https://villa24vlore.com/legal.html) (EN/SQ): the site sets no cookies and uses no analytics or tracking; personal data reaches the owners only if a visitor chooses to send an email or WhatsApp message. Rates shown are indicative — a booking exists only once the owners confirm it in writing.
 
 ## Optional
 
-- [Sitemap](https://infovillaadelefdp.github.io/Villa24Vlore/sitemap.xml)
+- [Sitemap](https://villa24vlore.com/sitemap.xml)
 - WebMCP: the page registers browser-side agent tools on `navigator.modelContext` (property info, room list, rates, language switch, section navigation, and a booking-enquiry draft that is never sent automatically). Experimental API — absent in browsers that do not implement it.
-- [Structured data](https://infovillaadelefdp.github.io/Villa24Vlore/): a schema.org LodgingBusiness JSON-LD block is embedded in the page head with the same address, rooms, amenities and rates.
+- [Structured data](https://villa24vlore.com/): a schema.org LodgingBusiness JSON-LD block is embedded in the page head with the same address, rooms, amenities and rates.
